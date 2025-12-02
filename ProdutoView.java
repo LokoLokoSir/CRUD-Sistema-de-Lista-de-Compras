@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Objects;
 
 public class ProdutoView extends JFrame {
@@ -89,6 +88,16 @@ public class ProdutoView extends JFrame {
         String preco = txtPreco.getText().replace(",", ".");
         String quant = txtQuantidade.getText();
 
+        if (Objects.equals(nome, "") && Objects.equals(preco, "") && Objects.equals(quant, "")) {
+            JOptionPane.showMessageDialog(this, "Nenhuma informação nova foi inserida!");
+            return;
+        }
+
+        if (Objects.equals(nome, "") || Objects.equals(preco, "") || Objects.equals(quant, "")){
+            JOptionPane.showMessageDialog(this, "Algum campo está vazio!");
+            return;
+        }
+
         if (!ProdutoController.isNumeric(preco) || !ProdutoController.isNumeric(quant)) {
             JOptionPane.showMessageDialog(this, "Preço e quantidade devem ser numéricos!");
             return;
@@ -100,7 +109,17 @@ public class ProdutoView extends JFrame {
     }
 
     private void atualizar() {
+        if (controller.listaProdutos.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Não existe produto para atualizar!");
+            return;
+        }
+
         String idStr = JOptionPane.showInputDialog("Digite o ID do produto:");
+
+        if (idStr == null) {
+            return;
+        }
+
         if (!ProdutoController.isNumeric(idStr)) {
             JOptionPane.showMessageDialog(this, "ID inválido!");
             return;
@@ -114,6 +133,11 @@ public class ProdutoView extends JFrame {
         String nome = txtNome.getText();
         String preco = txtPreco.getText().replace(",", ".");
         String quant = txtQuantidade.getText();
+
+        if (Objects.equals(nome, "") && Objects.equals(preco, "") && Objects.equals(quant, "")) {
+            JOptionPane.showMessageDialog(this, "Nenhuma informação nova foi inserida!");
+            return;
+        }
 
         if (Objects.equals(nome, "")){
             nome = antigoNome;
@@ -142,7 +166,17 @@ public class ProdutoView extends JFrame {
     }
 
     private void excluir() {
+        if (controller.listaProdutos.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Não existe produto para excluir!");
+            return;
+        }
+
         String idStr = JOptionPane.showInputDialog("Digite o ID do produto a excluir:");
+
+        if (idStr == null) {
+            return;
+        }
+
         if (!ProdutoController.isNumeric(idStr)) {
             JOptionPane.showMessageDialog(this, "ID inválido!");
             return;
