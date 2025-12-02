@@ -40,7 +40,7 @@ O projeto adota a arquitetura **Model-View-Controller (MVC)** para garantir a se
 
 ## Fluxo de Execução
 
-O sistema inicia o fluxo a partir da classe principal e opera através da interação do usuário com a interface gráfica (View).
+O sistema inicia e opera através da interação do usuário com a interface gráfica (View).
 
 1.  **Inicialização:** A aplicação é iniciada diretamente na classe **ProdutoView**, que é, também, responsável por exibir a tela ao usuário.
 2.  **Interação:** O usuário insere os dados do item (Nome, Preço, Qtd) na **View** e clica no botão "Cadastra".
