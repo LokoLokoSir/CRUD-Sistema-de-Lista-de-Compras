@@ -1,5 +1,7 @@
 # CRUD-Sistema-de-Lista-de-Compras
 
+![Print do projeto](img/JanelaCRUD.png)
+
 ## Autores
 
 Guilherme Colatino
